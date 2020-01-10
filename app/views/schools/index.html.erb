@@ -1,10 +1,9 @@
-<h1>Schools</h1>
+<h1>All Schools</h1>
 
 <ul>
   <%@schools.each do |school|%>
     <li>
-      <%=school.name%>
+      <%= link_to school.name, school_path(school.id)%>
     </li>
   <%end%>
-
 </ul>

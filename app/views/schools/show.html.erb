@@ -1,2 +1,19 @@
-<h1>School#show</h1>
-<p>Find me in app/views/school/show.html.erb</p>
+<h1><%=@school.name%>'s Page</h1>
+<h4>Search Students</h4>
+    <%= form_tag(searched_path, method: :get) do %>
+        <%= text_field_tag(:search, params[:search])%>
+        <%= submit_tag ("Search")%>
+    <% end %>
+<ul>
+<p><%@students.each do |student|%>
+<li>
+<%=link_to student.name, student_path(student.id)%> 
+<%=button_to "Expel Student", student_path(student.id), method: :delete%>
+</li>
+<%end%>
+</p>
+</ul>
+<br>
+<%=link_to "Add a Student", students_new_path%>
+<br>
+<%=link_to "Return to School List", schools_path%>

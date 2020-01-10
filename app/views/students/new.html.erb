@@ -1,0 +1,12 @@
+<h1>This is the New Student form</h1>
+
+<%=form_for @student do |f|%>
+<%=f.label "Name:"%>
+<%=f.text_field :name%>
+<%=f.label :age%>
+<%=f.text_field :age%>
+<%=f.collection_select :school_id, @schools, :id, :name%>
+<%=f.submit :submit%>
+<%end%>
+
+<%=link_to "Cancel Creation", schools_path%>
