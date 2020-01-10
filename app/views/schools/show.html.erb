@@ -8,7 +8,7 @@
 <p><%@students.each do |student|%>
 <li>
 <%=link_to student.name, student_path(student.id)%> 
-<%=button_to "Expel Student", student_path(student.id), method: :delete%>
+<%=button_to "Expel Student", student_path(student.id), method: :delete, :data => { :confirm => "Are you sure? You're about to remove this student from your roster." }%>
 </li>
 <%end%>
 </p>

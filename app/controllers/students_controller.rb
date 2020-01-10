@@ -11,6 +11,7 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.create(student_params)
+    byebug
     redirect_to "/schools/#{@student.school.id}"
   end
 

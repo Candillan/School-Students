@@ -4306,3 +4306,236 @@ ActionView::Template::Error (SQLite3::SQLException: no such column: students.stu
     6: </ul>
   
 app/views/students/searched.html.erb:3:in `_app_views_students_searched_html_erb___4142932799327330555_70229849354280'
+Started GET "/schools" for ::1 at 2020-01-10 16:00:00 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/candillan/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:4
+  Rendered schools/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 150ms (Views: 140.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/schools/21" for ::1 at 2020-01-10 16:00:02 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:7
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_id" = ?[0m  [["school_id", 21]]
+  ↳ app/views/schools/show.html.erb:8
+  Rendered schools/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 55ms (Views: 15.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/schools/24" for ::1 at 2020-01-10 16:00:06 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:7
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_id" = ?[0m  [["school_id", 24]]
+  ↳ app/views/schools/show.html.erb:8
+  Rendered schools/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/schools/23" for ::1 at 2020-01-10 16:00:07 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:7
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_id" = ?[0m  [["school_id", 23]]
+  ↳ app/views/schools/show.html.erb:8
+  Rendered schools/show.html.erb within layouts/application (21.1ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+     8: <p><%@students.each do |student|%>
+     9: <li>
+    10: <%=link_to student.name, student_path(student.id)%> 
+    11: <%=button_to "Expel Student", student_path(student.id), method: :delete, :data => { :confirm => "Are you sure? You're about to remove #{@student.name} from your roster." }%>
+    12: </li>
+    13: <%end%>
+    14: </p>
+  
+app/views/schools/show.html.erb:11:in `block in _app_views_schools_show_html_erb__2965169266053822991_70220684772500'
+app/views/schools/show.html.erb:8:in `_app_views_schools_show_html_erb__2965169266053822991_70220684772500'
+Started GET "/schools" for ::1 at 2020-01-10 16:00:09 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:4
+  Rendered schools/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/schools/23" for ::1 at 2020-01-10 16:00:11 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:7
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_id" = ?[0m  [["school_id", 23]]
+  ↳ app/views/schools/show.html.erb:8
+  Rendered schools/show.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+     8: <p><%@students.each do |student|%>
+     9: <li>
+    10: <%=link_to student.name, student_path(student.id)%> 
+    11: <%=button_to "Expel Student", student_path(student.id), method: :delete, :data => { :confirm => "Are you sure? You're about to remove #{@student.name} from your roster." }%>
+    12: </li>
+    13: <%end%>
+    14: </p>
+  
+app/views/schools/show.html.erb:11:in `block in _app_views_schools_show_html_erb__2965169266053822991_70220684504780'
+app/views/schools/show.html.erb:8:in `_app_views_schools_show_html_erb__2965169266053822991_70220684504780'
+Started GET "/schools" for ::1 at 2020-01-10 16:00:13 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:4
+  Rendered schools/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/schools/22" for ::1 at 2020-01-10 16:00:14 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:7
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_id" = ?[0m  [["school_id", 22]]
+  ↳ app/views/schools/show.html.erb:8
+  Rendered schools/show.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+     8: <p><%@students.each do |student|%>
+     9: <li>
+    10: <%=link_to student.name, student_path(student.id)%> 
+    11: <%=button_to "Expel Student", student_path(student.id), method: :delete, :data => { :confirm => "Are you sure? You're about to remove #{@student.name} from your roster." }%>
+    12: </li>
+    13: <%end%>
+    14: </p>
+  
+app/views/schools/show.html.erb:11:in `block in _app_views_schools_show_html_erb__2965169266053822991_70220693601560'
+app/views/schools/show.html.erb:8:in `_app_views_schools_show_html_erb__2965169266053822991_70220693601560'
+Started GET "/schools/22" for ::1 at 2020-01-10 16:00:54 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:7
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_id" = ?[0m  [["school_id", 22]]
+  ↳ app/views/schools/show.html.erb:8
+  Rendered schools/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/schools" for ::1 at 2020-01-10 16:01:07 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:4
+  Rendered schools/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/schools/23" for ::1 at 2020-01-10 16:01:08 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:7
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_id" = ?[0m  [["school_id", 23]]
+  ↳ app/views/schools/show.html.erb:8
+  Rendered schools/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students/new" for ::1 at 2020-01-10 16:11:13 -0500
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/students/new.html.erb:8
+  Rendered students/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 32ms (Views: 22.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/students" for ::1 at 2020-01-10 16:11:21 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kWtw2tCm5jxTimNO/9ugV/Bl6mpuM2dIGPWp2YjmzIHrfAIjA7+TAgPNJgI8g+lw47mD4/wUuONyOmoL8oSTuA==", "student"=>{"name"=>"Ben", "age"=>"12", "school_id"=>"24"}, "commit"=>"submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:13
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:13
+  [1m[36mStudent Create (0.5ms)[0m  [1m[32mINSERT INTO "students" ("name", "age", "created_at", "updated_at", "school_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ben"], ["age", 12], ["created_at", "2020-01-10 21:11:21.466004"], ["updated_at", "2020-01-10 21:11:21.466004"], ["school_id", 24]]
+  ↳ app/controllers/students_controller.rb:13
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:13
+Redirected to http://localhost:3000/schools/24
+Completed 302 Found in 16579ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/schools/24" for ::1 at 2020-01-10 16:11:38 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:7
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_id" = ?[0m  [["school_id", 24]]
+  ↳ app/views/schools/show.html.erb:8
+  Rendered schools/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 43ms (Views: 40.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/schools" for ::1 at 2020-01-10 16:22:49 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:4
+  Rendered schools/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/schools" for ::1 at 2020-01-10 16:37:57 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:4
+  Rendered schools/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/schools/21" for ::1 at 2020-01-10 16:37:58 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mSchool Load (0.2ms)[0m  [1m[34mSELECT  "schools".* FROM "schools" WHERE "schools"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:7
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_id" = ?[0m  [["school_id", 21]]
+  ↳ app/views/schools/show.html.erb:8
+  Rendered schools/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/schools" for ::1 at 2020-01-10 16:38:02 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (0.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:4
+  Rendered schools/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.1ms)
+
+
